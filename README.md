@@ -84,3 +84,14 @@ Different information is present in different Markdown files in this repository.
 
 - [Account and project set-up on Slices platform](account-project-setup.md) (general set-up of accounts and projects)
 - [Usage of the basic infrastructure service with the Slices CLI](basic-infrastructure-service.md) (guide for reserving, managing and using VM server nodes — this is the main guide you will need)
+- [RUNBOOK](RUNBOOK.md) — how to deploy the Hello World full-stack app (frontend + backend) onto the provisioned VM
+
+## Deploying the Hello World app
+
+After provisioning a VM with [`setup-server.sh`](setup-server.sh), run the following command from your local machine to deploy the app:
+
+```shell
+ssh ubuntu@<VM_IP> 'bash -s' < deploy-app.sh
+```
+
+This clones the repository on the VM, registers a systemd service, and opens port 8080. The app is then reachable at `http://<VM_IP>:8080/`. See [RUNBOOK.md](RUNBOOK.md) for the full step-by-step flow and verification commands.
